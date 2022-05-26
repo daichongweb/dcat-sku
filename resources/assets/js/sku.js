@@ -237,6 +237,11 @@
                 tbody_html += '<td data-field="pic"><input value="" type="hidden" class="form-control"><span class="Js_sku_upload"><i class="fa fa-file-photo-o"></i></span><span class="Js_sku_del_pic"><i class="feather icon-trash-2"></i></span></td>';
                 tbody_html += '<td data-field="price"><input value="' + _this.commonPrice + '" type="text" class="form-control"></td>';
                 tbody_html += '<td data-field="stock"><input value="' + _this.commonStock + '" type="text" class="form-control"></td>';
+                tbody_html += '<td data-field="market_price"><input value="' + _this.markterPrice + '" type="text" class="form-control"></td>';
+                tbody_html += '<td data-field="cost_price"><input value="' + _this.costPrice + '" type="text" class="form-control"></td>';
+                tbody_html += '<td data-field="commission"><input value="' + _this.commission + '" type="text" class="form-control"></td>';
+                tbody_html += '<td data-field="integral"><input value="' + _this.integral + '" type="text" class="form-control"></td>';
+
                 tbody_html += '</tr>'
             });
             _this.warp.find('.sku_edit_warp tbody').html(tbody_html);
