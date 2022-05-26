@@ -1,16 +1,16 @@
 (function () {
     // 上传地址
-    const UploadHost = '/admin/sku/upload';
+    const UploadHost = '/admin/upload/sku?type=goods';
 
     function SKU(warp) {
         this.warp = $(warp);
         this.attrs = {};
         this.commonStock = 0; // 统一库存
         this.commonPrice = 0; // 统一价格
-        this.markterPrice = 0; // 统一市场价格
-        this.costPrice = 0; // 统一成本
-        this.commission = 0; // 统一佣金
-        this.integral = 0; // 统一积分
+        this.commonMarkterPrice = 0; // 统一市场价格
+        this.commonCostPrice = 0; // 统一成本
+        this.commonCommission = 0; // 统一佣金
+        this.commonIntegral = 0; // 统一积分
         this.init();
     }
 
@@ -105,25 +105,25 @@
 
         this.warp.find('.sku_edit_warp thead').on('keyup', 'input.Js_market_price', function () {
             _this.commonStock = $(this).val();
-            _this.warp.find('.sku_edit_warp tbody td[data-field="market_price"] input').val(_this.markterPrice);
+            _this.warp.find('.sku_edit_warp tbody td[data-field="market_price"] input').val(_this.commonMarkterPrice);
             _this.processSku()
         });
 
         this.warp.find('.sku_edit_warp thead').on('keyup', 'input.Js_cost_price', function () {
             _this.commonStock = $(this).val();
-            _this.warp.find('.sku_edit_warp tbody td[data-field="cost_price"] input').val(_this.costPrice);
+            _this.warp.find('.sku_edit_warp tbody td[data-field="cost_price"] input').val(_this.commonCostPrice);
             _this.processSku()
         });
 
         this.warp.find('.sku_edit_warp thead').on('keyup', 'input.Js_commission', function () {
             _this.commonStock = $(this).val();
-            _this.warp.find('.sku_edit_warp tbody td[data-field="commission"] input').val(_this.commission);
+            _this.warp.find('.sku_edit_warp tbody td[data-field="commission"] input').val(_this.commonCommission);
             _this.processSku()
         });
 
         this.warp.find('.sku_edit_warp thead').on('keyup', 'input.Js_integral', function () {
             _this.commonStock = $(this).val();
-            _this.warp.find('.sku_edit_warp tbody td[data-field="integral"] input').val(_this.integral);
+            _this.warp.find('.sku_edit_warp tbody td[data-field="integral"] input').val(_this.commonIntegral);
             _this.processSku()
         });
 
@@ -230,10 +230,10 @@
             thead_html += '<th style="width: 10%">图片</th>';
             thead_html += '<th style="width: 10%">价格 <input value="' + _this.commonPrice + '" type="text" style="width: 40%" class="form-control-sidebar Js_price"></th>';
             thead_html += '<th style="width: 10%">库存 <input value="' + _this.commonStock + '" type="text" style="width: 40%" class="form-control-sidebar Js_stock"></th>';
-            thead_html += '<th style="width: 10%">市场价 <input value="' + _this.markterPrice + '" type="text" style="width: 40%" class="form-control-sidebar Js_market_price"></th>';
-            thead_html += '<th style="width: 10%">成本 <input value="' + _this.costPrice + '" type="text" style="width: 40%" class="form-control-sidebar Js_cost_price"></th>';
-            thead_html += '<th style="width: 10%">佣金 <input value="' + _this.commission + '" type="text" style="width: 40%" class="form-control-sidebar Js_commission"></th>';
-            thead_html += '<th style="width: 10%">积分 <input value="' + _this.integral + '" type="text" style="width: 40%" class="form-control-sidebar Js_integral"></th>';
+            thead_html += '<th style="width: 10%">市场价 <input value="' + _this.commonMarkterPrice + '" type="text" style="width: 40%" class="form-control-sidebar Js_market_price"></th>';
+            thead_html += '<th style="width: 10%">成本 <input value="' + _this.commonCostPrice + '" type="text" style="width: 40%" class="form-control-sidebar Js_cost_price"></th>';
+            thead_html += '<th style="width: 10%">佣金 <input value="' + _this.commonCommission + '" type="text" style="width: 40%" class="form-control-sidebar Js_commission"></th>';
+            thead_html += '<th style="width: 10%">积分 <input value="' + _this.commonIntegral + '" type="text" style="width: 40%" class="form-control-sidebar Js_integral"></th>';
             thead_html += '</tr>';
             _this.warp.find('.sku_edit_warp thead').html(thead_html);
 
@@ -259,12 +259,12 @@
                     tbody_html += '<td data-field="' + attr_name + '">' + attr_val + '</td>';
                 });
                 tbody_html += '<td data-field="pic"><input value="" type="hidden" class="form-control"><span class="Js_sku_upload"><i class="fa fa-file-photo-o"></i></span><span class="Js_sku_del_pic"><i class="feather icon-trash-2"></i></span></td>';
-                tbody_html += '<td data-field="price"><input value="' + _this.commonPrice + '" type="text" class="form-control"></td>';
-                tbody_html += '<td data-field="stock"><input value="' + _this.commonStock + '" type="text" class="form-control"></td>';
-                tbody_html += '<td data-field="market_price"><input value="' + _this.markterPrice + '" type="text" class="form-control"></td>';
-                tbody_html += '<td data-field="cost_price"><input value="' + _this.costPrice + '" type="text" class="form-control"></td>';
-                tbody_html += '<td data-field="commission"><input value="' + _this.commission + '" type="text" class="form-control"></td>';
-                tbody_html += '<td data-field="integral"><input value="' + _this.integral + '" type="text" class="form-control"></td>';
+                tbody_html += '<td data-field="price"><input value="' + _this.commonPrice + '" type="text" class="form-control Js_price"></td>';
+                tbody_html += '<td data-field="stock"><input value="' + _this.commonStock + '" type="text" class="form-control Js_stock"></td>';
+                tbody_html += '<td data-field="market_price"><input value="' + _this.commonMarkterPrice + '" type="text" class="form-control Js_market_price"></td>';
+                tbody_html += '<td data-field="cost_price"><input value="' + _this.commonCostPrice + '" type="text" class="form-control Js_cost_price"></td>';
+                tbody_html += '<td data-field="commission"><input value="' + _this.commonCommission + '" type="text" class="form-control Js_commission"></td>';
+                tbody_html += '<td data-field="integral"><input value="' + _this.commonIntegral + '" type="text" class="form-control Js_integral"></td>';
 
                 tbody_html += '</tr>'
             });
