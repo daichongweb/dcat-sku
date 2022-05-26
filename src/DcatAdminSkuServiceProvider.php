@@ -36,7 +36,7 @@ class DcatAdminSkuServiceProvider extends ServiceProvider
         ];
 
         app('router')->group($attributes, function ($router) {
-            $router->post('sku/upload?type=goods', [UploadController::class, 'sku'])->name('dcat-admin-sku.file-upload');
+            $router->post('/upload/sku?type=goods', [UploadController::class, 'sku'])->name('dcat-admin-sku.file-upload');
         });
 
         app('view')->prependNamespace('admin', $this->getViewPath());
