@@ -6,46 +6,46 @@ use Dcat\Admin\Extend\ServiceProvider;
 use Dcat\Admin\Admin;
 use Dcat\Admin\Form;
 use Zhy\Sku\Extensions\Form\SkuField;
-use Zhy\Sku\Http\Controllers\DcatAdminSkuController;
+use App\Admin\Controllers\UploadController;
 
 class DcatAdminSkuServiceProvider extends ServiceProvider
 {
-	protected $js = [
+    protected $js = [
         'js/index.js',
     ];
-	protected $css = [
-		'css/index.css',
-	];
+    protected $css = [
+        'css/index.css',
+    ];
 
-	public function register()
-	{
-		//
-	}
+    public function register()
+    {
+        //
+    }
 
-	public function init()
-	{
-	    if (!Admin::extension()->enabled('zhy.dcat-admin-sku')){
-	        return false;
+    public function init()
+    {
+        if (!Admin::extension()->enabled('zhy.dcat-admin-sku')) {
+            return false;
         }
 
-		parent::init();
+        parent::init();
 
         $attributes = [
-            'prefix'     => config('admin.route.prefix'),
+            'prefix' => config('admin.route.prefix'),
             'middleware' => config('admin.route.middleware'),
         ];
 
         app('router')->group($attributes, function ($router) {
-            $router->post('sku/upload', [DcatAdminSkuController::class,'uploadFile'])->name('dcat-admin-sku.file-upload');
+            $router->post('sku/upload', [UploadController::class, 'sku'])->name('dcat-admin-sku.file-upload');
         });
 
-        app('view')->prependNamespace('admin',$this->getViewPath());
+        app('view')->prependNamespace('admin', $this->getViewPath());
 
-        Form::extend('sku',SkuField::class);
-	}
+        Form::extend('sku', SkuField::class);
+    }
 
-	public function settingForm()
-	{
-		return new Setting($this);
-	}
+    public function settingForm()
+    {
+        return new Setting($this);
+    }
 }
