@@ -103,6 +103,30 @@
             _this.processSku()
         });
 
+        this.warp.find('.sku_edit_warp thead').on('keyup', 'input.Js_market_price', function () {
+            _this.commonStock = $(this).val();
+            _this.warp.find('.sku_edit_warp tbody td[data-field="market_price"] input').val(_this.markterPrice);
+            _this.processSku()
+        });
+
+        this.warp.find('.sku_edit_warp thead').on('keyup', 'input.Js_cost_price', function () {
+            _this.commonStock = $(this).val();
+            _this.warp.find('.sku_edit_warp tbody td[data-field="cost_price"] input').val(_this.costPrice);
+            _this.processSku()
+        });
+
+        this.warp.find('.sku_edit_warp thead').on('keyup', 'input.Js_commission', function () {
+            _this.commonStock = $(this).val();
+            _this.warp.find('.sku_edit_warp tbody td[data-field="commission"] input').val(_this.commission);
+            _this.processSku()
+        });
+
+        this.warp.find('.sku_edit_warp thead').on('keyup', 'input.Js_integral', function () {
+            _this.commonStock = $(this).val();
+            _this.warp.find('.sku_edit_warp tbody td[data-field="integral"] input').val(_this.integral);
+            _this.processSku()
+        });
+
         // SKU图片上传
         _this.warp.find('.sku_edit_warp tbody').on('click', '.Js_sku_upload', function () {
             _this.upload($(this))
@@ -206,10 +230,10 @@
             thead_html += '<th style="width: 10%">图片</th>';
             thead_html += '<th style="width: 10%">价格 <input value="' + _this.commonPrice + '" type="text" style="width: 40%" class="form-control-sidebar Js_price"></th>';
             thead_html += '<th style="width: 10%">库存 <input value="' + _this.commonStock + '" type="text" style="width: 40%" class="form-control-sidebar Js_stock"></th>';
-            thead_html += '<th style="width: 10%">市场价 <input value="' + _this.markterPrice + '" type="text" style="width: 40%" class="form-control-sidebar Js_price"></th>';
-            thead_html += '<th style="width: 10%">成本 <input value="' + _this.costPrice + '" type="text" style="width: 40%" class="form-control-sidebar Js_stock"></th>';
-            thead_html += '<th style="width: 10%">佣金 <input value="' + _this.commission + '" type="text" style="width: 40%" class="form-control-sidebar Js_stock"></th>';
-            thead_html += '<th style="width: 10%">积分 <input value="' + _this.integral + '" type="text" style="width: 40%" class="form-control-sidebar Js_stock"></th>';
+            thead_html += '<th style="width: 10%">市场价 <input value="' + _this.markterPrice + '" type="text" style="width: 40%" class="form-control-sidebar Js_market_price"></th>';
+            thead_html += '<th style="width: 10%">成本 <input value="' + _this.costPrice + '" type="text" style="width: 40%" class="form-control-sidebar Js_cost_price"></th>';
+            thead_html += '<th style="width: 10%">佣金 <input value="' + _this.commission + '" type="text" style="width: 40%" class="form-control-sidebar Js_commission"></th>';
+            thead_html += '<th style="width: 10%">积分 <input value="' + _this.integral + '" type="text" style="width: 40%" class="form-control-sidebar Js_integral"></th>';
             thead_html += '</tr>';
             _this.warp.find('.sku_edit_warp thead').html(thead_html);
 
