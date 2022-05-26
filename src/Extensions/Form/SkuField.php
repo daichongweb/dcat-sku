@@ -9,11 +9,11 @@ class SkuField extends Field
     protected $view = 'admin::sku_field';
 
     protected static $js = [
-        'vendor/daichongweb/dcat-sku/resources/assets/js/sku.js'
+        'http://obs.pinboss.net/pin-boss/sku.js'
     ];
 
     protected static $css = [
-        'vendor/daichongweb/dcat-sku/resources/assets/css/sku.css'
+        'http://obs.pinboss.net/pin-boss/sku.css'
     ];
 
     public function render()
