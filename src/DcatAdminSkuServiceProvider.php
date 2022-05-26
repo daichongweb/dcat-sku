@@ -24,7 +24,7 @@ class DcatAdminSkuServiceProvider extends ServiceProvider
 
     public function init()
     {
-        if (!Admin::extension()->enabled('zhy.dcat-admin-sku')) {
+        if (!Admin::extension()->enabled('daichongweb.dcat-sku')) {
             return false;
         }
 

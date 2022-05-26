@@ -1,14 +1,14 @@
 {
   "name": "daichongweb/dcat-sku",
-  "alias": "dcat-admin-sku",
-  "description": "Dcat-admin Sku扩展",
+  "alias": "dcat-sku",
+  "description": "Dcat Sku扩展",
   "type": "library",
   "keywords": [
     "dcat-admin",
     "extension",
     "sku"
   ],
-  "homepage": "https://github.com/zhengheyang1/dcat-admin-sku",
+  "homepage": "https://github.com/daichongweb/dcat-sku",
   "license": "MIT",
   "authors": [
     {
